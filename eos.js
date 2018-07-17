@@ -27,10 +27,10 @@ var answers = [
 //sends ready echo to console
 client.on('ready', () => {
   console.log("Prefix is: " + prefix);
-  console.log("Shade is R E A D Y.");
-  client.user.setUsername("Shade")
-  .then(user => console.log("My name has changed to Shade."));
-  client.user.setActivity("!!help for help");
+  console.log("TechWizards is R E A D Y.");
+  client.user.setUsername("TechWizards")
+  .then(user => console.log("Initialized."));
+  client.user.setActivity("-help for help");
   //client.user.setStatus("idle");
 
   //mute function
@@ -232,7 +232,7 @@ client.on("guildCreate", guild =>{
       "disabledEvents" : "null",
       "disabledMisc" : "memberLog",
       "disabledAutoMod" : "null",
-      "logchannelID" : logchannelIDFinder,
+      "logchannelID" : "462509403115880449",
       "modlogchannelID" : "null",
       "voicelogchannelID" : "null",
       "autoCleanUpBlacklist" : "null",
