@@ -276,7 +276,6 @@ client.on("message", message => {
   if(message.channel.type === "dm") return;
 
   let guild = message.guild;
-  var logchannel = guild.channels.get(config[guild.id].logchannelID);
   var commandDir = fs.readdirSync("./commands");
   let args = message.content.split(" ").slice(1);
   
