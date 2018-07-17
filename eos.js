@@ -29,7 +29,7 @@ client.on('ready', () => {
   console.log("Prefix is: " + prefix);
   console.log("TechWizards is R E A D Y.");
   client.user.setUsername("TechWizards")
-  .then(user => console.log("Initialized."));
+  .then(user => console.log("My name has changed to TechWizards."));
   client.user.setActivity("-help for help");
   //client.user.setStatus("idle");
 
@@ -232,7 +232,7 @@ client.on("guildCreate", guild =>{
       "disabledEvents" : "null",
       "disabledMisc" : "memberLog",
       "disabledAutoMod" : "null",
-      "logchannelID" : "462509403115880449",
+      "logchannelID" : logchannelIDFinder,
       "modlogchannelID" : "null",
       "voicelogchannelID" : "null",
       "autoCleanUpBlacklist" : "null",
@@ -245,8 +245,8 @@ client.on("guildCreate", guild =>{
     jsonfile.writeFile("config.json", config, {spaces: 4}, err =>{
       if(!err){
         const embed = new Discord.RichEmbed()
-          .addField("Welcome to the Shade Community!", "Thanks for adding Shade!")
-          .addField("I highly reccomend you check out the following link for info:", "https://veraxonhd.gitbooks.io/shade-modbot/content/first-time-setup.html")
+          .addField("Welcome to the TechWizards Community!", "Thanks for adding TechWizards!")
+          .addField("I highly reccomend you check out the following link for info:", "https://veraxonhd.gitbooks.io/TechWizards-modbot/content/first-time-setup.html")
           .setColor("#30167c");
         guild.owner.send({embed}).catch(console.log);
       }else{
@@ -276,13 +276,14 @@ client.on("message", message => {
   if(message.channel.type === "dm") return;
 
   let guild = message.guild;
+  var logchannel = guild.channels.get(config[guild.id].logchannelID);
   var commandDir = fs.readdirSync("./commands");
   let args = message.content.split(" ").slice(1);
   
   /*
   BROKEN - repeats messages for no known reason.
   if(!logchannel){
-    message.channel.send("`Shade Critical Error` - There is no base log channel. You must set one up to use any of Shade's commands. Consult the docs.");
+    message.channel.send("`TechWizards Critical Error` - There is no base log channel. You must set one up to use any of TechWizards's commands. Consult the docs.");
     return;
   }*/
 
@@ -292,7 +293,7 @@ client.on("message", message => {
   }
   if(!message.content.startsWith(prefix)) return;
   exports.noPermReact = () => {
-    return message.channel.send(`Shade - \`Error\` - You do not have permission to perform that command.`)
+    return message.channel.send(`TechWizards - \`Error\` - You do not have permission to perform that command.`)
       .then(message => message.react('❎'))
     };
 
